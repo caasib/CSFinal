@@ -17,7 +17,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" layoutX="409.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="92.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" layoutX="509.0" layoutY="7.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" layoutX="409.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="92.0" />
-      <Rectangle fx:id="playerRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" layoutX="509.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" layoutX="509.0" layoutY="36.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" layoutX="7.0" layoutY="66.0" stroke="BLACK" strokeType="INSIDE" width="92.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" layoutX="107.0" layoutY="66.0" stroke="BLACK" strokeType="INSIDE" width="92.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" layoutX="208.0" layoutY="66.0" stroke="BLACK" strokeType="INSIDE" width="92.0" />

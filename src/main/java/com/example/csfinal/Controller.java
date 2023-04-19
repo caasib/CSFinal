@@ -13,6 +13,8 @@ public class Controller {
     @FXML
     Rectangle playerRectangle;
     double x;
+
+    @FXML
     Circle playBall;
 
     public void move(KeyEvent e) {
