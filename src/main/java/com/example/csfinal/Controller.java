@@ -31,6 +31,8 @@ public class Controller implements Initializable {
     @FXML
     AnchorPane pane;
 
+    int maxBounceAngle = 45;
+
     public void move(KeyEvent e) {
         switch (e.getCode()) {
             case A:
@@ -78,6 +80,21 @@ public class Controller implements Initializable {
             }
             if (topBorder || bottomBorder) {
                 deltaY *= -1;
+            }
+
+            //I need to find a better way to do this
+            for (int i = 0; i < pane.getChildren().size(); i++) {
+                if (pane.getChildren().get(i).getClass().getSimpleName().equals("Rectangle")) {
+                    Rectangle hitRect = (Rectangle) pane.getChildren().get(i);
+                    if (playBall.getBoundsInParent().intersects(hitRect.getBoundsInParent())) {
+                        //System.out.println("bounce");
+                        int relativeIntersectY = (int) ((hitRect.getY() + (hitRect.getHeight() / 2)) - playBall.getCenterY());
+                        int normalizedRIY = (int) (relativeIntersectY / (hitRect.getHeight() / 2));
+                        int bounceAngle = normalizedRIY * maxBounceAngle;
+                        deltaX *= Math.cos(bounceAngle);
+                        deltaY *= -1;
+                    }
+                }
             }
         }
     }));

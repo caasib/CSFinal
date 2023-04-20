@@ -37,6 +37,6 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" layoutX="409.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="92.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" layoutX="509.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
       <Rectangle fx:id="playerRectangle" arcHeight="5.0" arcWidth="5.0" height="33.0" layoutX="200.0" layoutY="351.0" onKeyPressed="#move" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <Circle fx:id="playBall" fill="RED" layoutX="300.0" layoutY="322.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="playBall" fill="RED" layoutX="332.0" layoutY="170.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>
