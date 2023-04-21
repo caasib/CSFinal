@@ -31,18 +31,18 @@ public class Controller implements Initializable {
     @FXML
     AnchorPane pane;
 
-    int maxBounceAngle = 45;
+    int maxBounceAngle = 75;
 
     public void move(KeyEvent e) {
         switch (e.getCode()) {
             case A:
-                if ((x + 5) >= -(playerRectangle.getParent().getLayoutBounds().getWidth() / 3)) {
-                    playerRectangle.setX(x -= 5);
+                if ((x + 10) >= -(playerRectangle.getParent().getLayoutBounds().getWidth() / 3)) {
+                    playerRectangle.setX(x -= 10);
                 }
                 break;
             case D:
-                if ((x + 5) <= (playerRectangle.getParent().getLayoutBounds().getWidth() / 3)) {
-                    playerRectangle.setX(x += 5);
+                if ((x + 10) <= (playerRectangle.getParent().getLayoutBounds().getWidth() / 3)) {
+                    playerRectangle.setX(x += 10);
                 }
                 break;
             default:
