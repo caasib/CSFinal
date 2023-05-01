@@ -15,6 +15,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.net.URL;
@@ -31,7 +32,12 @@ public class Controller implements Initializable {
     @FXML
     AnchorPane pane;
 
+    @FXML
+    Text textScore;
+
     int maxBounceAngle = 75;
+    int score = 0;
+    boolean gameOver = false;
 
     public void move(KeyEvent e) {
         switch (e.getCode()) {
@@ -48,6 +54,10 @@ public class Controller implements Initializable {
             default:
                 break;
         }
+    }
+
+    public void restart() {
+
     }
 
     /* Sources for ball movement:
@@ -68,18 +78,23 @@ public class Controller implements Initializable {
             playBall.setLayoutY(playBall.getLayoutY() + deltaY);
 
             //Finding the borders of the AnchorPane so that the ball can bounce off of them instead of leaving the frame
+            //Also need to find the bottom to implement lose condition
             Bounds bounds = pane.getBoundsInLocal();
             boolean rightBorder = playBall.getLayoutX() >= (bounds.getMaxX() - playBall.getRadius());
             boolean leftBorder = playBall.getLayoutX() <= (bounds.getMinX() + playBall.getRadius());
-            boolean topBorder = playBall.getLayoutY() >= (bounds.getMaxY() - playBall.getRadius());
-            boolean bottomBorder = playBall.getLayoutY() <= (bounds.getMinY() + playBall.getRadius());
+            boolean bottomBorder = playBall.getLayoutY() >= (bounds.getMaxY() - playBall.getRadius());
+            boolean topBorder = playBall.getLayoutY() <= (bounds.getMinY() + playBall.getRadius());
 
             //If at one of the borders, change direction accordingly
             if (rightBorder || leftBorder) {
                 deltaX *= -1;
             }
-            if (topBorder || bottomBorder) {
+            if (topBorder) {
                 deltaY *= -1;
+            }
+            if (bottomBorder) {
+                gameOver = true;
+                bounce.stop();
             }
 
             //I need to find a better way to do this
@@ -93,6 +108,11 @@ public class Controller implements Initializable {
                         int bounceAngle = normalizedRIY * maxBounceAngle;
                         deltaX *= Math.cos(bounceAngle);
                         deltaY *= -1;
+                        if (hitRect.getId() == null) {
+                            score++;
+                            pane.getChildren().remove(hitRect);
+                            textScore.setText("Score: " + score);
+                        }
                     }
                 }
             }
@@ -102,6 +122,8 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         bounce.setCycleCount(-1); //Equivalent to Animation.INDEFINITE
-        bounce.play();
+        if (!gameOver) {
+            bounce.play();
+        }
     }
 }

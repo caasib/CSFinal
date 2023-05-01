@@ -1,5 +1,6 @@
 package com.example.csfinal;
 
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -40,6 +41,14 @@ public class Application extends javafx.application.Application {
             }
         });
         stage.show();
+        controller.bounce.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                stage.close();
+                stage.setScene(new Scene(root));
+                stage.show();
+            }
+        });
     }
 
     public static void main(String[] args) {

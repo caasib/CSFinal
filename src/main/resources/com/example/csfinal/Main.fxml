@@ -3,6 +3,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#move" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csfinal.Controller">
    <children>
@@ -37,6 +39,11 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" layoutX="409.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="92.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="23.0" layoutX="509.0" layoutY="125.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
       <Rectangle fx:id="playerRectangle" arcHeight="5.0" arcWidth="5.0" height="33.0" layoutX="200.0" layoutY="351.0" onKeyPressed="#move" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-      <Circle fx:id="playBall" fill="RED" layoutX="332.0" layoutY="170.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="playBall" fill="RED" layoutX="300.0" layoutY="234.0" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text fx:id="textScore" layoutX="433.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score: 0" wrappingWidth="135.60003662109375">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
