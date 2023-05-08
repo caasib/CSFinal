@@ -27,7 +27,7 @@ public class Application extends javafx.application.Application {
         Scene scene = new Scene(root);
         stage.setTitle("Atari Breakout");
         stage.setScene(scene);
-        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+        stage.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent e) {
                 switch (e.getCode()) {
@@ -40,6 +40,19 @@ public class Application extends javafx.application.Application {
                 }
             }
         });
+//        scene.setOnKeyPressed(new EventHandler<KeyEvent>() {
+//            @Override
+//            public void handle(KeyEvent e) {
+//                switch (e.getCode()) {
+//                    case A:
+//                    case D:
+//                        controller.move(e);
+//                        break;
+//                    default:
+//                        break;
+//                }
+//            }
+//        });
         stage.show();
     }
 

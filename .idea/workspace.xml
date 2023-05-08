@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="977bb1ce-1dad-42b0-b4ab-897f5585de01" name="Changes" comment="">
+    <list default="true" id="977bb1ce-1dad-42b0-b4ab-897f5585de01" name="Changes" comment="jhvgcxtrde">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/csfinal/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/csfinal/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/csfinal/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/csfinal/Controller.java" afterDir="false" />
@@ -69,10 +69,20 @@
       <option name="presentableId" value="Default" />
       <updated>1681005154646</updated>
     </task>
+    <task id="LOCAL-00001" summary="jhvgcxtrde">
+      <created>1683551439275</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683551439275</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="jhvgcxtrde" />
+    <option name="LAST_COMMIT_MESSAGE" value="jhvgcxtrde" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

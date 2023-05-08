@@ -81,8 +81,6 @@ public class Controller implements Initializable {
         }
     }
 
-
-
     /* Sources for ball movement:
     https://www.youtube.com/watch?v=x6NFmzQHvMU
     https://gamedev.stackexchange.com/questions/4253/in-pong-how-do-you-calculate-the-balls-direction-when-it-bounces-off-the-paddl?noredirect=1&lq=1
@@ -116,6 +114,7 @@ public class Controller implements Initializable {
                 deltaY *= -1;
             }
             if (bottomBorder) {
+                bounce.stop();
                 restartButton.setOpacity(1);
             }
 
