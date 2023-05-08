@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="977bb1ce-1dad-42b0-b4ab-897f5585de01" name="Changes" comment="">
+    <list default="true" id="977bb1ce-1dad-42b0-b4ab-897f5585de01" name="Changes" comment="hbg cyxtxdxd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/csfinal/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/csfinal/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/csfinal/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/csfinal/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/csfinal/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/csfinal/Main.fxml" afterDir="false" />
     </list>

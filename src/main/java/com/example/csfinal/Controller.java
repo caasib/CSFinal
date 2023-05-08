@@ -17,6 +17,8 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+import javafx.scene.control.Button;
+import javafx.application.Application;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,6 +36,9 @@ public class Controller implements Initializable {
 
     @FXML
     Text textScore;
+
+    @FXML
+    Button restartButton;
 
     int maxBounceAngle = 75;
     int score = 0;
@@ -56,9 +61,13 @@ public class Controller implements Initializable {
         }
     }
 
-    public void restart() {
+    public void restart(ActionEvent e) {
+        if (restartButton.getOpacity() > 0) { //It's a double, so I can't do == 1
 
+        }
     }
+
+
 
     /* Sources for ball movement:
     https://www.youtube.com/watch?v=x6NFmzQHvMU
@@ -93,8 +102,7 @@ public class Controller implements Initializable {
                 deltaY *= -1;
             }
             if (bottomBorder) {
-                gameOver = true;
-                bounce.stop();
+                restartButton.setOpacity(1);
             }
 
             //I need to find a better way to do this
