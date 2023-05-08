@@ -6,8 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Bounds;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Dialog;
 import javafx.scene.input.KeyCode;
@@ -16,11 +19,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.control.Button;
 import javafx.application.Application;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -44,6 +50,10 @@ public class Controller implements Initializable {
     int score = 0;
     boolean gameOver = false;
 
+    Stage stage;
+    Scene scene;
+    Parent root;
+
     public void move(KeyEvent e) {
         switch (e.getCode()) {
             case A:
@@ -61,9 +71,13 @@ public class Controller implements Initializable {
         }
     }
 
-    public void restart(ActionEvent e) {
+    public void restart(ActionEvent e) throws IOException {
         if (restartButton.getOpacity() > 0) { //It's a double, so I can't do == 1
-
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Main.fxml")));
+            stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
     }
 
