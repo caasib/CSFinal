@@ -48,7 +48,6 @@ public class Controller implements Initializable {
 
     int maxBounceAngle = 75;
     int score = 0;
-    boolean gameOver = false;
 
     Stage stage;
     Scene scene;
@@ -57,13 +56,13 @@ public class Controller implements Initializable {
     public void move(KeyEvent e) {
         switch (e.getCode()) {
             case A:
-                if ((x + 10) >= -(playerRectangle.getParent().getLayoutBounds().getWidth() / 3)) {
-                    playerRectangle.setX(x -= 10);
+                if ((x + 20) >= -(playerRectangle.getParent().getLayoutBounds().getWidth() / 3)) {
+                    playerRectangle.setX(x -= 20);
                 }
                 break;
             case D:
-                if ((x + 10) <= (playerRectangle.getParent().getLayoutBounds().getWidth() / 3)) {
-                    playerRectangle.setX(x += 10);
+                if ((x + 20) <= (playerRectangle.getParent().getLayoutBounds().getWidth() / 3)) {
+                    playerRectangle.setX(x += 20);
                 }
                 break;
             default:
@@ -73,6 +72,8 @@ public class Controller implements Initializable {
 
     public void restart(ActionEvent e) throws IOException {
         if (restartButton.getOpacity() > 0) { //It's a double, so I can't do == 1
+            //Also, I check to make sure it's not transparent so people don't accidentally restart the game when they
+            //click on the window
             root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Main.fxml")));
             stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -89,8 +90,8 @@ public class Controller implements Initializable {
     Timeline bounce = new Timeline(new KeyFrame(Duration.millis(10), new EventHandler<ActionEvent>() {
         //Amount that the ball will move per frame
         //This is one frame per 10 milliseconds which is 100 FPS
-        int deltaX = 3;
-        int deltaY = 3;
+        int deltaX = 2;
+        int deltaY = 2;
 
         @Override
         public void handle(ActionEvent e) {
@@ -115,24 +116,33 @@ public class Controller implements Initializable {
             }
             if (bottomBorder) {
                 bounce.stop();
+                restartButton.setText("Press to restart");
                 restartButton.setOpacity(1);
             }
 
             //I need to find a better way to do this
+            //If the ball hits something at the wrong angle, it'll intersect weirdly and glitch out. No idea how to fix
             for (int i = 0; i < pane.getChildren().size(); i++) {
                 if (pane.getChildren().get(i).getClass().getSimpleName().equals("Rectangle")) {
                     Rectangle hitRect = (Rectangle) pane.getChildren().get(i);
                     if (playBall.getBoundsInParent().intersects(hitRect.getBoundsInParent())) {
-                        //System.out.println("bounce");
                         int relativeIntersectY = (int) ((hitRect.getY() + (hitRect.getHeight() / 2)) - playBall.getCenterY());
                         int normalizedRIY = (int) (relativeIntersectY / (hitRect.getHeight() / 2));
                         int bounceAngle = normalizedRIY * maxBounceAngle;
+                        //Just some math which basically sees where the ball hits the rectangle and calculates the
+                        //bounce angle based on that. If the ball hits the middle, it should fly basically straight, and
+                        //if the ball hits the edges, it should bounce at the greatest angle
                         deltaX *= Math.cos(bounceAngle);
-                        deltaY *= -1;
+                        deltaY *= -1; //For some reason, the math that they did in the original post causes deltaY to
+                        //always be -3, so I decided to just flip the direction instead
                         if (hitRect.getId() == null) {
                             score++;
                             pane.getChildren().remove(hitRect);
                             textScore.setText("Score: " + score);
+                            if (score == 30) {
+                                restartButton.setText("You win!\nPress to restart");
+                                restartButton.setOpacity(1);
+                            }
                         }
                     }
                 }
@@ -143,8 +153,6 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         bounce.setCycleCount(-1); //Equivalent to Animation.INDEFINITE
-        if (!gameOver) {
-            bounce.play();
-        }
+        bounce.play();
     }
 }
